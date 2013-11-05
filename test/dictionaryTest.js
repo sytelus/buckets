@@ -193,6 +193,14 @@ function() {
 		for(var i=0; i < pairArray.length; i++) {
 			expect(dict.get([pairArray[i].key])).toEqual(pairArray[i].value);
 		}
+		
+		var pairArray2 = dict.toArray(function(p) { return {key: p.key, value: p.value*2}; });
+		expect(pairArray2.length).toEqual(dict.size());
+		
+		for(var i=0; i < pairArray2.length; i++) {
+			expect(dict.get([pairArray2[i].key]) * 2).toEqual(pairArray2[i].value);
+		}
+
     });
 	
 });

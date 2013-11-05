@@ -792,11 +792,14 @@ var buckets = {};
      * Returns an array containing all of the key, value pairs in this dictionary.
      * @return {Array} An array containing all of the key, value pairs in this dictionary.
      */
-    buckets.Dictionary.prototype.toArray = function() {
+    buckets.Dictionary.prototype.toArray = function(pairMapFunction) {
         var array = [];
         for (var name in this.table) {
             if (this.table.hasOwnProperty(name)) {
-                array.push({key: this.table[name].key, value: this.table[name].value });
+				var dictPair = this.table[name];
+				var mappedPair = !!pairMapFunction ? 
+					pairMapFunction(dictPair) : {key: dictPair.key, value: dictPair.value };
+                array.push(mappedPair);
             }
         }
         return array;
