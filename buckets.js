@@ -789,6 +789,19 @@ var buckets = {};
         return array;
     };
     /**
+     * Returns an array containing all of the key, value pairs in this dictionary.
+     * @return {Array} An array containing all of the key, value pairs in this dictionary.
+     */
+    buckets.Dictionary.prototype.toArray = function() {
+        var array = [];
+        for (var name in this.table) {
+            if (this.table.hasOwnProperty(name)) {
+                array.push({key: this.table[name].key, value: this.table[name].value });
+            }
+        }
+        return array;
+    };
+    /**
      * Returns an array containing all of the values in this dictionary.
      * @return {Array} An array containing all of the values in this dictionary.
      */

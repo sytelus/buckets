@@ -182,4 +182,17 @@ function() {
 		expect(t).toEqual(1);
     });
 
+	it('toArray returns all pairs in array',
+    function() {
+        for (var i = 0; i < elems; i++) {
+            dict.set("" + i, i);
+        }
+		var pairArray = dict.toArray();
+		expect(pairArray.length).toEqual(dict.size());
+		
+		for(var i=0; i < pairArray.length; i++) {
+			expect(dict.get([pairArray[i].key])).toEqual(pairArray[i].value);
+		}
+    });
+	
 });
