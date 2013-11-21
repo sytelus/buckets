@@ -2386,8 +2386,8 @@ var buckets = {};
 	
 	// Make AMD/RequireJS compatible
 	if ( typeof define === "function" && define.amd ) {
-		define( "jquery", [], function() {
-			return jQuery;
+		define( "buckets", [], function() {
+			return buckets;
 		});
 	}	
 	
